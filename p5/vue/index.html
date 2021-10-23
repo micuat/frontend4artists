@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://unpkg.com/vue@next"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 18pt;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <div id="counter">
+    <h1>p5 with Vue!</h1>
+    <input type="range" min="0" max="255" v-model="r" />
+    <input v-model="message" />
+  </div>
+
+  <script>
+    const Counter = {
+      data() {
+        return {
+          r: 0,
+          message: "hi from vue!👋",
+        }
+      }
+    }
+
+    const c = Vue.createApp(Counter).mount('#counter')
+
+    function setup() {
+      createCanvas(400, 400);
+    }
+
+    function draw() {
+      background(parseInt(c.r));
+      fill(255 - parseInt(c.r));
+      textSize(25)
+      textAlign(CENTER, CENTER)
+      translate(width / 2, (millis() * 0.1) % height)
+      rotate(sin(millis() * 0.004) * 0.2)
+      text(c.message, 0, 0);
+    }
+  </script>
+</body>
+
+</html>
