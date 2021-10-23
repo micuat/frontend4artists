@@ -25,6 +25,7 @@
 <body>
   <div id="app">
   </div>
+  <p><a target="_blank" href="https://github.com/micuat/frontend4artists/blob/main/p5/choo/index.html">open code</a></p>
 
   <script>
     var app = Choo()
@@ -38,6 +39,7 @@
       <h1>p5 with choo🚂</h1>
       <input type="text" value="${state.message}" oninput=${updateText} />
       <input type="range" min="0" max="255" value="${state.r}" oninput=${updateSlider} />
+      <div id="p5container"></div>
     </div>
   `
 
@@ -61,7 +63,7 @@
     }
 
     function setup() {
-      createCanvas(400, 400);
+      createCanvas(400, 400).parent(select("#p5container"));
     }
 
     function draw() {

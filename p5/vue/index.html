@@ -26,7 +26,9 @@
     <h1>p5 with Vue!</h1>
     <input type="range" min="0" max="255" v-model="r" />
     <input v-model="message" />
+    <div id="p5container"></div>
   </div>
+  <p><a target="_blank" href="https://github.com/micuat/frontend4artists/blob/main/p5/vue/index.html">open code</a></p>
 
   <script>
     const Counter = {
@@ -41,7 +43,7 @@
     const c = Vue.createApp(Counter).mount('#counter')
 
     function setup() {
-      createCanvas(400, 400);
+      createCanvas(400, 400).parent(select("#p5container"));
     }
 
     function draw() {

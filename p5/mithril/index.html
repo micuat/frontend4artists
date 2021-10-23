@@ -24,6 +24,7 @@
 <body>
   <div>
   </div>
+  <p><a target="_blank" href="https://github.com/micuat/frontend4artists/blob/main/p5/mithril/index.html">open code</a></p>
 
   <script>
     let message = "hi from mithril👋";
@@ -33,7 +34,6 @@
       view: function () {
         return m("main", [
           m("h1", { class: "title" }, "p5 with Mithril!"),
-          // m("p", message),
           m(
             "input[type=text]",
             {
@@ -50,6 +50,7 @@
               max: 255
             },
           ),
+          m("div#p5container"),
         ]);
       },
     };
@@ -58,7 +59,7 @@
     m.mount(root, Hello);
 
     function setup() {
-      createCanvas(400, 400);
+      createCanvas(400, 400).parent(select("#p5container"));
     }
 
     function draw() {

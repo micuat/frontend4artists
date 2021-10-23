@@ -26,7 +26,9 @@
     <h1>p5 with Alpine!</h1>
     <input x-model="message" />
     <input type="range" min="0" max="255" x-model="r" />
+    <div id="p5container"></div>
   </div>
+  <p><a target="_blank" href="https://github.com/micuat/frontend4artists/blob/main/p5/alpine/index.html">open code</a></p>
 
   <script>
     let root;
@@ -38,7 +40,7 @@
     }
 
     function setup() {
-      createCanvas(400, 400);
+      createCanvas(400, 400).parent(select("#p5container"));
     }
 
     function draw() {
