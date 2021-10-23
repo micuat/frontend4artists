@@ -27,13 +27,14 @@
   <canvas></canvas>
 
   <script>
-    let message = "hi from mithril👋";
     let r = 0;
 
     const Hello = {
       view: function () {
         return m("main", [
-          m("h1", { class: "title" }, "hydra with Mithril!"),
+          m("h1", { class: "title" }, "Hydra with Mithril!"),
+          m("button", { onclick: () => render(o0) }, "o0"),
+          m("button", { onclick: () => render(o1) }, "o1"),
           m(
             "input[type=range]",
             {
@@ -55,7 +56,9 @@
       detectAudio: false,
       enableStreamCapture: false,
     });
-    osc(50,0.03,1.5).rotate(()=>r/255).out();
+    osc(50,0.03,1.5).rotate(()=>r/255).out(o0);
+    noise().color(1,()=>r/255,0).colorama().out(o1);
+
   </script>
 </body>
 
