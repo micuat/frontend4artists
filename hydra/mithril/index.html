@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://unpkg.com/hydra-synth"></script>
+  <script src="https://unpkg.com/mithril/mithril.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 18pt;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <div>
+  </div>
+  <canvas></canvas>
+
+  <script>
+    let message = "hi from mithril👋";
+    let r = 0;
+
+    const Hello = {
+      view: function () {
+        return m("main", [
+          m("h1", { class: "title" }, "hydra with Mithril!"),
+          m(
+            "input[type=range]",
+            {
+              oninput: function (e) { r = e.target.value },
+              value: r,
+              min: 0,
+              max: 255
+            },
+          ),
+        ]);
+      },
+    };
+
+    const root = document.querySelector("div");
+    m.mount(root, Hello);
+
+    const hydra = new Hydra({
+      canvas: document.querySelector("canvas"),
+      detectAudio: false,
+      enableStreamCapture: false,
+    });
+    osc(50,0.03,1.5).rotate(()=>r/255).out();
+  </script>
+</body>
+
+</html>
