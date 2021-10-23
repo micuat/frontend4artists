@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+  <script src="https://unpkg.com/torus-dom/dist/index.min.js"></script>
+  <style>
+    html,
+    body {
+      margin: 0;
+      padding: 0;
+      font-size: 18pt;
+      font-family: sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+  </style>
+  <meta charset="utf-8" />
+
+</head>
+
+<body>
+  <div>
+  </div>
+  <p><a target="_blank" href="https://github.com/micuat/frontend4artists/blob/main/p5/torus/index.html">open code</a>
+  </p>
+
+  <script>
+    class App extends Torus.StyledComponent {
+      init() {
+        this.message = "hi from torus👋";
+        this.r = 0;
+      }
+
+      compose() {
+        return jdom`<main>
+            <h1>p5 with Torus</h1>
+            <input type="text" value="${this.message}" oninput="${(e) => {
+            this.message = e.target.value;
+            this.render();
+          }}"></input>
+            <input type="range" min="0" max="255" value="${this.r}" oninput="${(
+            e
+          ) => (this.r = e.target.value)}"/>
+        </main>`;
+      }
+    }
+
+    const app = new App();
+    document.querySelector("div").appendChild(app.node);
+
+    function setup() {
+      createCanvas(400, 400);
+    }
+
+    function draw() {
+      background(parseInt(app.r));
+      fill(255 - parseInt(app.r));
+      textSize(25);
+      textAlign(CENTER, CENTER);
+      translate(width / 2, (millis() * 0.1) % height);
+      rotate(sin(millis() * 0.004) * 0.2);
+      text(app.message, 0, 0);
+    }
+  </script>
+</body>
+
+</html>

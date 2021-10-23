@@ -12,6 +12,7 @@ Demo
 * Vue [/hydra/vue/](/hydra/vue/) | [/p5/vue/](/p5/vue/) | [p5.js Editor](https://editor.p5js.org/micuat/sketches/fz3W-BuDI)
 * Alpine [/hydra/alpine/](/hydra/alpine/) | [/p5/alpine/](/p5/alpine/) | [p5.js Editor](https://editor.p5js.org/micuat/sketches/TDcwOji5h)
 * Mithril [/hydra/mithril/](/hydra/mithril/) | [/p5/mithril/](/p5/mithril/) | [p5.js Editor](https://editor.p5js.org/micuat/sketches/-tSm0KGDE)
+* Torus [/hydra/torus/](/hydra/torus/) | [/p5/torus/](/p5/torus/) | [p5.js Editor](https://editor.p5js.org/micuat/sketches/JBBkwVZsy)
 
 License
 --------
