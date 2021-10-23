@@ -1,7 +1,9 @@
 Creative Code + Front End
 ========
 
-git repository for [the article "Front-End Framework for Artists"](https://naotohieda.com/blog/front-end/)
+Examples for [the article "Front-End Framework for Artists"](https://naotohieda.com/blog/front-end/).
+
+[website](http://frontend4artists.glitches.me/) | [git repository](https://github.com/micuat/frontend4artists)
 
 You can find comparison of a small p5.js script that uses a JavaScript front-end framework as a controller.
 
